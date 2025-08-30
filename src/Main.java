@@ -5,11 +5,12 @@ public class Main {
 
 
         Task task = new Task();
+        Scanner sc = new Scanner(System.in);
 
         int opcao = 0;
         while (opcao != 3) {
 
-            Scanner sc = new Scanner(System.in);
+
 
             System.out.println("===Sistema de Tarefas===");
 
