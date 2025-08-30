@@ -15,7 +15,7 @@ public class Main {
             System.out.println("===Sistema de Tarefas===");
 
             System.out.println("1 - Cadastrar Tarefa ");
-            System.out.println("2 - Tarefa Atual ");
+            System.out.println("2 - Mostrar Tarefas ");
             System.out.println("3 - Sair ");
 
 

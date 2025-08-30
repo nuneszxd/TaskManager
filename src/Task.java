@@ -1,6 +1,9 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Task {
+
+    ArrayList<Task> tasks = new ArrayList<>();
 
     private int id;
     private String name = "";
@@ -34,22 +37,29 @@ public class Task {
 
  public void cadastrarTask(){
 
+      Task newTask = new Task();
+
      System.out.println("Cadastre uma tarefa: ");
 
      System.out.println("Digite o nome da tarefa: ");
-     this.setName(sc.nextLine());
+     newTask.setName(sc.nextLine());
+
 
      System.out.println("Descrição: ");
-     this.setDescricao(sc.nextLine());
+     newTask.setDescricao(sc.nextLine());
+
+     tasks.add(newTask);
 
  }
 
  public void mostrarTask(){
 
-        if( getName().isEmpty() && getDescricao().isEmpty()){
+        if(tasks.isEmpty()){
             System.out.println("Nenhuma tarefa cadastrada!");
         }else {
-            System.out.println("===Tarefa Atual===\n Tarefa - " + getName() + "\nDescrição: " + getDescricao());
+            for (Task t : tasks) {
+                System.out.println("===Tarefa Atual===\n Tarefa - " + t.getName() + "\nDescrição: " + t.getDescricao());
+            }
         }
  }
 
