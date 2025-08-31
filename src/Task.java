@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Task {
 
+    private static int contador = 1;
     ArrayList<Task> tasks = new ArrayList<>();
 
     private int id;
@@ -38,6 +39,7 @@ public class Task {
  public void cadastrarTask(){
 
       Task newTask = new Task();
+      newTask.setId(contador++);
 
      System.out.println("Cadastre uma tarefa: ");
 
@@ -58,7 +60,10 @@ public class Task {
             System.out.println("Nenhuma tarefa cadastrada!");
         }else {
             for (Task t : tasks) {
-                System.out.println("===Tarefa Atual===\n Tarefa - " + t.getName() + "\nDescrição: " + t.getDescricao());
+                System.out.println("=== Tarefa " + t.getId() + " ===");
+                System.out.println("Nome: " + t.getName());
+                System.out.println("Descrição: " + t.getDescricao());
+                System.out.println();
             }
         }
  }
