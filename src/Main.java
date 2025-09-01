@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         int opcao = 0;
-        while (opcao != 3) {
+        while (opcao != 5) {
 
 
 
@@ -16,7 +16,10 @@ public class Main {
 
             System.out.println("1 - Cadastrar Tarefa ");
             System.out.println("2 - Mostrar Tarefas ");
-            System.out.println("3 - Sair ");
+            System.out.println("3 - Editar Tarefas ");
+            System.out.println("4 - Remover Tarefas ");
+            System.out.println("5 - Sair ");
+
 
 
             opcao = sc.nextInt();
@@ -34,6 +37,14 @@ public class Main {
                     break;
 
                 case 3:
+                    task.editarTask();
+                    break;
+
+                case 4:
+                    task.removerTask();
+                    break;
+
+                case 5:
                     System.out.println("Saindo...");
                     break;
 

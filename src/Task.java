@@ -66,6 +66,64 @@ public class Task {
                 System.out.println();
             }
         }
- }
+    }
+
+    public Task buscarId(int id){
+
+        for (Task t : tasks){
+            if (t.getId() == id){
+                return t;
+            }
+        }
+    return null;
+    }
+
+    public void editarTask(){
+
+        mostrarTask();
+
+        System.out.println("Digite o ID da tarefa a editar: ");
+        int idProcurado = sc.nextInt();
+        sc.nextLine();
+
+        Task t = buscarId(idProcurado);
+
+        if (t == null) {
+            System.out.println("Tarefa não encontrada! ");
+            return;
+        }
+
+        System.out.println("Digite o novo nome da tarrefa: ");
+        String newName = sc.nextLine();
+        t.setName(newName);
+
+        System.out.println("Digite a nova descrição: ");
+        String newDescricao = sc.nextLine();
+        t.setDescricao(newDescricao);
+
+        System.out.println("Tarefa editada com sucesso! ");
+
+    }
+
+    public void removerTask(){
+
+        mostrarTask();
+
+        System.out.println("Digite o ID da tarefa a remover: ");
+        int idProcurado = sc.nextInt();
+        sc.nextLine();
+
+        Task t = buscarId(idProcurado);
+
+        if (t == null) {
+            System.out.println("Tarefa não encontrada! ");
+            return;
+        }
+
+        tasks.remove(t);
+        System.out.println("Tarefa removida! ");
+
+
+    }
 
 }
