@@ -3,14 +3,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
         Task task = new Task();
         Scanner sc = new Scanner(System.in);
 
         int opcao = 0;
-        while (opcao != 5) {
-
-
+        while (opcao != 6) {
 
             System.out.println("===Sistema de Tarefas===");
 
@@ -18,13 +15,11 @@ public class Main {
             System.out.println("2 - Mostrar Tarefas ");
             System.out.println("3 - Editar Tarefas ");
             System.out.println("4 - Remover Tarefas ");
-            System.out.println("5 - Sair ");
-
-
+            System.out.println("5 - Filtrar Tarefas ");
+            System.out.println("6 - Sair ");
 
             opcao = sc.nextInt();
             sc.nextLine();
-
 
             switch (opcao) {
 
@@ -45,8 +40,11 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Saindo...");
+                    task.filtrarTask();
                     break;
+
+                case 6:
+                    System.out.println("Saindo...");
 
                 default:
                     System.out.println("Opção invalida!");

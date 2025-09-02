@@ -126,4 +126,60 @@ public class Task {
 
     }
 
+    public void filtrarTask(){
+
+        System.out.println("=== Filtrar Tarefas ===");
+        System.out.println("Digite a palavra que deseja buscar: ");
+        String buscarTask = sc.nextLine();
+
+        if (tasks.isEmpty()){
+
+            System.out.println("Nenhuma tarefa cadastrada!");
+
+        } else {
+
+            for (int i = 0; i < tasks.size(); i++) {
+                Task t = tasks.get(i);
+
+                if (t.getName().contains(buscarTask) || t.getDescricao().contains(buscarTask)) {
+                    System.out.println("Tarefa - " + t.getId());
+                    System.out.println("Nome: " + t.getName());
+                    System.out.println("Descrição: " + t.getDescricao());
+
+                    System.out.println("Selecione pelo ID da tarefa que deseja editar/remover: ");
+                    int idProcurado = sc.nextInt();
+                    sc.nextLine();
+
+                    t = buscarId(idProcurado);
+
+                    if (t == null) {
+                        System.out.println("Tarefa não encontrada!");
+                        return;
+                    }
+
+
+                    System.out.println("Você deseja editar ou remover a tarefa? (editar/remover)");
+                    String escolhaTask = sc.nextLine();
+
+                    if (escolhaTask.equalsIgnoreCase("editar")) {
+                        System.out.println("Digite o novo nome da tarefa: ");
+                        t.setName(sc.nextLine());
+
+                        System.out.println("Digite a nova descrição: ");
+                        t.setDescricao(sc.nextLine());
+
+                        System.out.println("Tarefa editada com sucesso!");
+                    } else if (escolhaTask.equalsIgnoreCase("remover")) {
+                        tasks.remove(i);
+                        i--;
+                        System.out.println("Tarefa removida com sucesso!");
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
 }
